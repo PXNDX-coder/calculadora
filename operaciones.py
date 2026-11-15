@@ -3,7 +3,7 @@
 Este módulo solo realiza cálculos. La interacción con el usuario
 está en calculadora.py.
 """
-
+import math
 
 def sumar(a, b):
     """Devuelve la suma de a y b."""
@@ -43,4 +43,12 @@ def potencia(base, exponente):
 def modulo(a, b):
     """Devuelve el residuo de dividir a entre b."""
     return a % b
+
+
+def raiz_cuadrada(numero):
+    """Devuelve la raíz cuadrada de un número no negativo."""
+    if numero < 0:
+        raise ValueError("No existe la raíz cuadrada real de un número negativo.")
+    return math.sqrt(numero)
+
 

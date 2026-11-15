@@ -58,6 +58,11 @@ def calcular_modulo():
     return f"{formatear(a)} mod {formatear(b)}", op.modulo(a, b)
 
 
+def calcular_raiz():
+    numero = pedir_numero("Número: ")
+    return f"√{formatear(numero)}", op.raiz_cuadrada(numero)
+
+
 # Opción del menú -> (nombre, función que pide los datos y calcula)
 OPCIONES = {
     "1": ("Sumar", calcular_suma),
@@ -66,6 +71,7 @@ OPCIONES = {
     "4": ("Dividir", calcular_division),
     "5": ("Potencia", calcular_potencia),
     "6": ("Módulo (residuo)", calcular_modulo),
+    "7": ("Raíz cuadrada", calcular_raiz),
 }
 
 

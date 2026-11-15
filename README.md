@@ -11,7 +11,7 @@ Calculadora de consola escrita en Python. Permite realizar operaciones matemáti
 | Base | Suma, resta, multiplicación y división | Operaciones básicas entre dos números. | ✅ Completado |
 | 1 | Potencia | Base elevada a un exponente. | ✅ Completado |
 | 2 | Módulo | Residuo de una división. | ✅ Completado |
-| 3 | Raíz cuadrada | Raíz cuadrada de un número no negativo. | ⏳ Pendiente |
+| 3 | Raíz cuadrada | Raíz cuadrada de un número no negativo. | ✅ Completado |
 | 4 | Porcentaje | Porcentaje de una cantidad (15 % de 200 = 30). | ⏳ Pendiente |
 | 5 | Valor absoluto | Valor absoluto de un número. | ⏳ Pendiente |
 | 6 | Factorial | Factorial de un entero no negativo. | ⏳ Pendiente |
