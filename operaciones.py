@@ -52,3 +52,11 @@ def raiz_cuadrada(numero):
     return math.sqrt(numero)
 
 
+def porcentaje(porcentaje_valor, cantidad):
+    """Devuelve el porcentaje indicado de una cantidad.
+
+    Ejemplo: porcentaje(15, 200) devuelve 30.
+    """
+    return cantidad * porcentaje_valor / 100
+
+

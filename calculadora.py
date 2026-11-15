@@ -63,6 +63,15 @@ def calcular_raiz():
     return f"√{formatear(numero)}", op.raiz_cuadrada(numero)
 
 
+def calcular_porcentaje():
+    porcentaje_valor = pedir_numero("Porcentaje (%): ")
+    cantidad = pedir_numero("Cantidad: ")
+    return (
+        f"{formatear(porcentaje_valor)} % de {formatear(cantidad)}",
+        op.porcentaje(porcentaje_valor, cantidad),
+    )
+
+
 # Opción del menú -> (nombre, función que pide los datos y calcula)
 OPCIONES = {
     "1": ("Sumar", calcular_suma),
@@ -72,6 +81,7 @@ OPCIONES = {
     "5": ("Potencia", calcular_potencia),
     "6": ("Módulo (residuo)", calcular_modulo),
     "7": ("Raíz cuadrada", calcular_raiz),
+    "8": ("Porcentaje", calcular_porcentaje),
 }
 
 
