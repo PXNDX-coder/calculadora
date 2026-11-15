@@ -146,11 +146,31 @@ OPCIONES = {
 }
 
 
+# Grupos del menú: (título, opciones que contiene)
+CATEGORIAS = [
+    ("Operaciones básicas", ["1", "2", "3", "4"]),
+    ("Operaciones avanzadas", ["5", "6", "7", "8", "9", "10"]),
+    ("Estadística y redondeo", ["11", "12"]),
+]
+
+
+LINEA = "=" * 46
+
+
 def mostrar_menu():
-    """Muestra las operaciones disponibles."""
-    print("\n=== CALCULADORA ===")
-    for clave, (nombre, _) in OPCIONES.items():
-        print(f"{clave}. {nombre}")
+    """Muestra las operaciones disponibles agrupadas por categoría."""
+    print("\n" + LINEA)
+    print("CALCULADORA".center(46))
+    print(LINEA)
+    for titulo, claves in CATEGORIAS:
+        print(f" {titulo}")
+        for i in range(0, len(claves), 2):
+            fila = ""
+            for clave in claves[i:i + 2]:
+                nombre = OPCIONES[clave][0]
+                fila += f"  {clave:>2}. {nombre:<19}"
+            print(fila.rstrip())
+    print(LINEA)
 
 
 def main():
@@ -161,7 +181,8 @@ def main():
         print("Opción no válida.")
         return
 
-    _, calcular = OPCIONES[opcion]
+    nombre, calcular = OPCIONES[opcion]
+    print(f"\n--- {nombre} ---")
     try:
         expresion, resultado = calcular()
         print(f"Resultado: {expresion} = {formatear(resultado)}")

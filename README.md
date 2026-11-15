@@ -18,8 +18,8 @@ Calculadora de consola escrita en Python. Permite realizar operaciones matemáti
 | 7 | Promedio | Promedio de varios números. | ✅ Completado  |
 | 8 | Redondeo | Redondeo a la cantidad de decimales indicada. | ✅ Completado |
 | 9 | Validación de entradas | Control de entradas no numéricas. | ✅ Completado |
-| 10 | División por cero | Evitar divisiones y módulos con divisor cero. | ✅ Completado|
-| 11 | Mejorar el menú | Menú claro y organizado por categorías. | ⏳ Pendiente |
+| 10 | División por cero | Evitar divisiones y módulos con divisor cero. | ✅ Completado |
+| 11 | Mejorar el menú | Menú claro y organizado por categorías. | ✅ Completado |
 | 12 | Repetir operaciones | Varias operaciones sin reiniciar el programa. | ⏳ Pendiente |
 | 13 | Historial de operaciones | Guardar y mostrar las operaciones realizadas. | ⏳ Pendiente |
 | 14 | Limpiar historial | Borrar el historial de operaciones. | ⏳ Pendiente |
