@@ -14,7 +14,7 @@ Calculadora de consola escrita en Python. Permite realizar operaciones matemáti
 | 3 | Raíz cuadrada | Raíz cuadrada de un número no negativo. | ✅ Completado |
 | 4 | Porcentaje | Porcentaje de una cantidad (15 % de 200 = 30). | ✅ Completado |
 | 5 | Valor absoluto | Valor absoluto de un número. | ✅ Completado |
-| 6 | Factorial | Factorial de un entero no negativo. | ⏳ Pendiente |
+| 6 | Factorial | Factorial de un entero no negativo. | ✅ Completado |
 | 7 | Promedio | Promedio de varios números. | ⏳ Pendiente |
 | 8 | Redondeo | Redondeo a la cantidad de decimales indicada. | ⏳ Pendiente |
 | 9 | Validación de entradas | Control de entradas no numéricas. | ⏳ Pendiente |

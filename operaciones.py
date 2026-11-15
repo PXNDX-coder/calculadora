@@ -65,3 +65,10 @@ def valor_absoluto(numero):
     return abs(numero)
 
 
+def factorial(n):
+    """Devuelve el factorial de un entero no negativo."""
+    if n < 0 or not float(n).is_integer():
+        raise ValueError("El factorial solo se calcula para enteros no negativos.")
+    if n > 1000:
+        raise ValueError("El número es demasiado grande (máximo 1000).")
+    return math.factorial(int(n))

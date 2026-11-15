@@ -77,6 +77,11 @@ def calcular_absoluto():
     return f"|{formatear(numero)}|", op.valor_absoluto(numero)
 
 
+def calcular_factorial():
+    n = pedir_numero("Número entero no negativo: ")
+    return f"{formatear(n)}!", op.factorial(n)
+
+
 # Opción del menú -> (nombre, función que pide los datos y calcula)
 OPCIONES = {
     "1": ("Sumar", calcular_suma),
@@ -88,6 +93,7 @@ OPCIONES = {
     "7": ("Raíz cuadrada", calcular_raiz),
     "8": ("Porcentaje", calcular_porcentaje),
     "9": ("Valor absoluto", calcular_absoluto),
+    "10": ("Factorial", calcular_factorial),
 }
 
 
