@@ -158,9 +158,17 @@ def mostrar_historial():
         print(f"{numero:>3}. {registro}")
 
 
+def limpiar_historial():
+    """Borra todas las operaciones guardadas en el historial."""
+    cantidad = len(historial)
+    historial.clear()
+    print(f"\nHistorial borrado ({cantidad} operaciones eliminadas).")
+
+
 # Opciones que no son cálculos: (nombre, función)
 ACCIONES = {
     "13": ("Ver historial", mostrar_historial),
+    "14": ("Limpiar historial", limpiar_historial),
 }
 
 
@@ -176,7 +184,7 @@ CATEGORIAS = [
     ("Operaciones básicas", ["1", "2", "3", "4"]),
     ("Operaciones avanzadas", ["5", "6", "7", "8", "9", "10"]),
     ("Estadística y redondeo", ["11", "12"]),
-    ("Historial", ["13"]),
+    ("Historial", ["13", "14"]),
 ]
 
 
