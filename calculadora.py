@@ -165,7 +165,7 @@ def main():
     try:
         expresion, resultado = calcular()
         print(f"Resultado: {expresion} = {formatear(resultado)}")
-    except ValueError as error:
+    except (ValueError, ZeroDivisionError) as error:
         print(f"Error: {error}")
 
 

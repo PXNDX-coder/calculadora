@@ -23,7 +23,9 @@ def multiplicar(a, b):
 
 
 def dividir(a, b):
-    """Devuelve el cociente de a entre b."""
+    """Devuelve el cociente de a entre b. No permite dividir entre cero."""
+    if b == 0:
+        raise ZeroDivisionError("No se puede dividir entre cero.")
     return a / b
 
 
@@ -43,7 +45,9 @@ def potencia(base, exponente):
 
 
 def modulo(a, b):
-    """Devuelve el residuo de dividir a entre b."""
+    """Devuelve el residuo de dividir a entre b. El divisor no puede ser cero."""
+    if b == 0:
+        raise ZeroDivisionError("No se puede calcular el módulo con divisor cero.")
     return a % b
 
 
