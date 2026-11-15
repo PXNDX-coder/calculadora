@@ -60,3 +60,8 @@ def porcentaje(porcentaje_valor, cantidad):
     return cantidad * porcentaje_valor / 100
 
 
+def valor_absoluto(numero):
+    """Devuelve el valor absoluto de un número."""
+    return abs(numero)
+
+
