@@ -23,3 +23,18 @@ def multiplicar(a, b):
 def dividir(a, b):
     """Devuelve el cociente de a entre b."""
     return a / b
+
+
+def potencia(base, exponente):
+    """Devuelve base elevada a exponente.
+
+    Admite exponentes positivos, negativos y cero.
+    """
+    if base == 0 and exponente < 0:
+        raise ValueError("0 no se puede elevar a un exponente negativo.")
+    if base < 0 and not float(exponente).is_integer():
+        raise ValueError("Una base negativa solo admite exponentes enteros.")
+    try:
+        return base ** exponente
+    except OverflowError:
+        raise ValueError("El resultado es demasiado grande.")

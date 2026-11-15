@@ -46,12 +46,19 @@ def calcular_division():
     return f"{formatear(a)} ÷ {formatear(b)}", op.dividir(a, b)
 
 
+def calcular_potencia():
+    base = pedir_numero("Base: ")
+    exponente = pedir_numero("Exponente: ")
+    return f"{formatear(base)} ^ {formatear(exponente)}", op.potencia(base, exponente)
+
+
 # Opción del menú -> (nombre, función que pide los datos y calcula)
 OPCIONES = {
     "1": ("Sumar", calcular_suma),
     "2": ("Restar", calcular_resta),
     "3": ("Multiplicar", calcular_multiplicacion),
     "4": ("Dividir", calcular_division),
+    "5": ("Potencia", calcular_potencia),
 }
 
 
@@ -71,8 +78,11 @@ def main():
         return
 
     _, calcular = OPCIONES[opcion]
-    expresion, resultado = calcular()
-    print(f"Resultado: {expresion} = {formatear(resultado)}")
+    try:
+        expresion, resultado = calcular()
+        print(f"Resultado: {expresion} = {formatear(resultado)}")
+    except ValueError as error:
+        print(f"Error: {error}")
 
 
 if __name__ == "__main__":
