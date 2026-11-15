@@ -5,6 +5,8 @@ está en calculadora.py.
 """
 import math
 
+from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
+
 def sumar(a, b):
     """Devuelve la suma de a y b."""
     return a + b
@@ -79,5 +81,19 @@ def promedio(numeros):
     if len(numeros) == 0:
         raise ValueError("Se necesita al menos un número para calcular el promedio.")
     return sum(numeros) / len(numeros)
+
+
+def redondear(numero, decimales):
+    """Redondea un número a la cantidad de decimales indicada.
+
+    Usa el redondeo escolar: 2.5 se redondea a 3 y 2.675 a 2.68.
+    """
+    if decimales < 0 or not float(decimales).is_integer():
+        raise ValueError("Los decimales deben ser un entero mayor o igual a 0.")
+    paso = Decimal(1).scaleb(-int(decimales))
+    try:
+        return float(Decimal(str(numero)).quantize(paso, rounding=ROUND_HALF_UP))
+    except InvalidOperation:
+        raise ValueError("El número tiene demasiadas cifras para redondearlo así.")
 
 

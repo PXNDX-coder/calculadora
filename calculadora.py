@@ -89,6 +89,15 @@ def calcular_promedio():
     return f"promedio({lista})", op.promedio(numeros)
 
 
+def calcular_redondeo():
+    numero = pedir_numero("Número a redondear: ")
+    decimales = pedir_numero("Cantidad de decimales: ")
+    return (
+        f"redondear({formatear(numero)}, {formatear(decimales)})",
+        op.redondear(numero, decimales),
+    )
+
+
 # Opción del menú -> (nombre, función que pide los datos y calcula)
 OPCIONES = {
     "1": ("Sumar", calcular_suma),
@@ -102,6 +111,7 @@ OPCIONES = {
     "9": ("Valor absoluto", calcular_absoluto),
     "10": ("Factorial", calcular_factorial),
     "11": ("Promedio", calcular_promedio),
+    "12": ("Redondear", calcular_redondeo),
 }
 
 
