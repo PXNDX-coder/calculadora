@@ -3,13 +3,45 @@
 Muestra el menú, solicita los datos y muestra los resultados.
 Los cálculos se realizan en operaciones.py.
 """
+import math
 
 import operaciones as op
 
 
+def convertir_numero(texto):
+    """Convierte un texto en número. Devuelve None si no es un número válido.
+
+    Acepta coma o punto decimal (2,5 o 2.5) y rechaza inf y nan.
+    """
+    try:
+        numero = float(texto.strip().replace(",", "."))
+    except ValueError:
+        return None
+    if math.isinf(numero) or math.isnan(numero):
+        return None
+    return numero
+
+
 def pedir_numero(mensaje):
-    """Pide un número al usuario."""
-    return float(input(mensaje))
+    """Pide un número hasta que el usuario escriba un valor válido."""
+    while True:
+        numero = convertir_numero(input(mensaje))
+        if numero is not None:
+            return numero
+        print("  Entrada no válida. Escribe un número, por ejemplo 8 o 2.5.")
+
+
+def pedir_lista(mensaje):
+    """Pide varios números separados por espacios hasta que todos sean válidos."""
+    while True:
+        partes = input(mensaje).split()
+        numeros = [convertir_numero(parte) for parte in partes]
+        if not partes:
+            print("  Escribe al menos un número.")
+        elif None in numeros:
+            print("  Hay valores que no son números. Ejemplo válido: 4 8 15.5")
+        else:
+            return numeros
 
 
 def formatear(numero):
@@ -83,8 +115,7 @@ def calcular_factorial():
 
 
 def calcular_promedio():
-    texto = input("Números separados por espacios: ")
-    numeros = [float(parte) for parte in texto.split()]
+    numeros = pedir_lista("Números separados por espacios: ")
     lista = ", ".join(formatear(n) for n in numeros)
     return f"promedio({lista})", op.promedio(numeros)
 
