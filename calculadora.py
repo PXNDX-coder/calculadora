@@ -82,6 +82,13 @@ def calcular_factorial():
     return f"{formatear(n)}!", op.factorial(n)
 
 
+def calcular_promedio():
+    texto = input("Números separados por espacios: ")
+    numeros = [float(parte) for parte in texto.split()]
+    lista = ", ".join(formatear(n) for n in numeros)
+    return f"promedio({lista})", op.promedio(numeros)
+
+
 # Opción del menú -> (nombre, función que pide los datos y calcula)
 OPCIONES = {
     "1": ("Sumar", calcular_suma),
@@ -94,6 +101,7 @@ OPCIONES = {
     "8": ("Porcentaje", calcular_porcentaje),
     "9": ("Valor absoluto", calcular_absoluto),
     "10": ("Factorial", calcular_factorial),
+    "11": ("Promedio", calcular_promedio),
 }
 
 

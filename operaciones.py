@@ -72,3 +72,12 @@ def factorial(n):
     if n > 1000:
         raise ValueError("El número es demasiado grande (máximo 1000).")
     return math.factorial(int(n))
+
+
+def promedio(numeros):
+    """Devuelve el promedio de una lista de números."""
+    if len(numeros) == 0:
+        raise ValueError("Se necesita al menos un número para calcular el promedio.")
+    return sum(numeros) / len(numeros)
+
+
