@@ -160,7 +160,7 @@ LINEA = "=" * 46
 def mostrar_menu():
     """Muestra las operaciones disponibles agrupadas por categoría."""
     print("\n" + LINEA)
-    print("CALCULADORA".center(46))
+    print("CALCULADORA".center(46).rstrip())
     print(LINEA)
     for titulo, claves in CATEGORIAS:
         print(f" {titulo}")
@@ -170,17 +170,12 @@ def mostrar_menu():
                 nombre = OPCIONES[clave][0]
                 fila += f"  {clave:>2}. {nombre:<19}"
             print(fila.rstrip())
+    print("   0. Salir")
     print(LINEA)
 
 
-def main():
-    mostrar_menu()
-    opcion = input("\nElige una opción: ").strip()
-
-    if opcion not in OPCIONES:
-        print("Opción no válida.")
-        return
-
+def realizar_operacion(opcion):
+    """Pide los datos de la opción elegida, calcula y muestra el resultado."""
     nombre, calcular = OPCIONES[opcion]
     print(f"\n--- {nombre} ---")
     try:
@@ -190,5 +185,23 @@ def main():
         print(f"Error: {error}")
 
 
+def main():
+    """Repite el menú hasta que el usuario elija salir."""
+    while True:
+        mostrar_menu()
+        opcion = input("\nElige una opción: ").strip()
+
+        if opcion == "0":
+            print("¡Hasta pronto!")
+            break
+        if opcion in OPCIONES:
+            realizar_operacion(opcion)
+        else:
+            print("Opción no válida. Elige un número del menú.")
+
+
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (KeyboardInterrupt, EOFError):
+        print("\nPrograma terminado.")
