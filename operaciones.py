@@ -38,3 +38,9 @@ def potencia(base, exponente):
         return base ** exponente
     except OverflowError:
         raise ValueError("El resultado es demasiado grande.")
+
+
+def modulo(a, b):
+    """Devuelve el residuo de dividir a entre b."""
+    return a % b
+

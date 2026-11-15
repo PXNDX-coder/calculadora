@@ -52,6 +52,12 @@ def calcular_potencia():
     return f"{formatear(base)} ^ {formatear(exponente)}", op.potencia(base, exponente)
 
 
+def calcular_modulo():
+    a = pedir_numero("Dividendo: ")
+    b = pedir_numero("Divisor: ")
+    return f"{formatear(a)} mod {formatear(b)}", op.modulo(a, b)
+
+
 # Opción del menú -> (nombre, función que pide los datos y calcula)
 OPCIONES = {
     "1": ("Sumar", calcular_suma),
@@ -59,6 +65,7 @@ OPCIONES = {
     "3": ("Multiplicar", calcular_multiplicacion),
     "4": ("Dividir", calcular_division),
     "5": ("Potencia", calcular_potencia),
+    "6": ("Módulo (residuo)", calcular_modulo),
 }
 
 
