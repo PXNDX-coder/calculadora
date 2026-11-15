@@ -7,6 +7,8 @@ import math
 
 import operaciones as op
 
+# Operaciones realizadas durante la ejecución, por ejemplo "2 + 3 = 5"
+historial = []
 
 def convertir_numero(texto):
     """Convierte un texto en número. Devuelve None si no es un número válido.
@@ -146,11 +148,35 @@ OPCIONES = {
 }
 
 
+def mostrar_historial():
+    """Muestra las operaciones realizadas desde que se inició el programa."""
+    print("\n--- Historial de operaciones ---")
+    if not historial:
+        print("Todavía no hay operaciones en el historial.")
+        return
+    for numero, registro in enumerate(historial, start=1):
+        print(f"{numero:>3}. {registro}")
+
+
+# Opciones que no son cálculos: (nombre, función)
+ACCIONES = {
+    "13": ("Ver historial", mostrar_historial),
+}
+
+
+def nombre_opcion(clave):
+    """Devuelve el nombre que se muestra en el menú para una opción."""
+    if clave in OPCIONES:
+        return OPCIONES[clave][0]
+    return ACCIONES[clave][0]
+
+
 # Grupos del menú: (título, opciones que contiene)
 CATEGORIAS = [
     ("Operaciones básicas", ["1", "2", "3", "4"]),
     ("Operaciones avanzadas", ["5", "6", "7", "8", "9", "10"]),
     ("Estadística y redondeo", ["11", "12"]),
+    ("Historial", ["13"]),
 ]
 
 
@@ -167,7 +193,7 @@ def mostrar_menu():
         for i in range(0, len(claves), 2):
             fila = ""
             for clave in claves[i:i + 2]:
-                nombre = OPCIONES[clave][0]
+                nombre = nombre_opcion(clave)
                 fila += f"  {clave:>2}. {nombre:<19}"
             print(fila.rstrip())
     print("   0. Salir")
@@ -180,7 +206,9 @@ def realizar_operacion(opcion):
     print(f"\n--- {nombre} ---")
     try:
         expresion, resultado = calcular()
-        print(f"Resultado: {expresion} = {formatear(resultado)}")
+        registro = f"{expresion} = {formatear(resultado)}"
+        historial.append(registro)
+        print(f"Resultado: {registro}")
     except (ValueError, ZeroDivisionError) as error:
         print(f"Error: {error}")
 
@@ -196,6 +224,8 @@ def main():
             break
         if opcion in OPCIONES:
             realizar_operacion(opcion)
+        elif opcion in ACCIONES:
+            ACCIONES[opcion][1]()
         else:
             print("Opción no válida. Elige un número del menú.")
 
